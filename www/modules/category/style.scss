@@ -1,0 +1,32 @@
+.category{
+  .sh-brands-container{
+    justify-content:  space-around;
+  }
+  .sh-brand{
+  	@extend .sh-item;
+  	width: 30vw;
+  	height: 30vw;
+  	margin: 5px 1vw 5px 1vw;
+  }
+  .has-header{
+    @media (min-width: 650px) {
+      top: 100px !important;
+    }
+  }
+}
+.platform-ios{
+  .category{ 
+    .sh-url{
+      margin-top: 64px;
+      @media (min-width: 650px) {
+        margin-top: 80px;
+      }
+    }
+    .has-header{
+      top: 104px !important;
+      @media (min-width: 650px) {
+        top: 120px !important;
+      }
+    }
+  }
+}

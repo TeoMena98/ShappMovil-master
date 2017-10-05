@@ -1,0 +1,97 @@
+<ion-view class="challenges">
+  <ion-nav-bar class="bar-positive sh-center-v" ng-show="!Home.welcome.val">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header sh-gray-bg gamification">
+    <div class="item item-avatar">
+      <img class="sh-profile-picture" src="{{$storage.user.picture}}" ng-if="$storage.user.picture">
+      <img class="sh-profile-picture" src="img/profile.jpg" ng-if="!$storage.user.picture">  
+      <div>
+        <br>
+        <b>{{$storage.user.name}}</b>
+      </div>
+      <div class="sh-userInfo">
+        <img class="sh-conis-icon" src="img/MONEDAS-1.png"/>
+        {{$storage.user.coins}}
+        <br>
+        <i class="icon ion-trophy"></i>
+        {{$storage.uuid.uuid.level}}
+      </div>
+      <div class="sh-info">
+        <span>Gana</span> monedas completanto cada uno de estos niveles y podrás comprar bonos
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar {{validRegister}}">
+        <img src="img/challenges/Retos-01.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Conectados</h2>
+        <p style="white-space: normal;">Registarse en Shapp</p>
+        <p class="sh-coins">Monedas: 3</p>
+      </div>
+      <div class="item item-avatar {{RetoUp}}">
+        <img src="img/challenges/Retos-02.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Aplicado</h2>
+        <p style="white-space: normal;">Completa tus datos en Shapp</p>
+        <p class="sh-coins">Monedas: 5</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-03.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Compartir</h2>
+        <p style="white-space: normal;">Compartir una marca o compartir un producto</p>
+        <p class="sh-coins">Monedas: 2</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-04.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Calificar</h2>
+        <p style="white-space: normal;">Calificar/comentar una marca o un producto</p>
+        <p class="sh-coins">Monedas: 3</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-05.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Seguidor</h2>
+        <p style="white-space: normal;">Agregar 2 marcas a mis Shapp por día</p>
+        <p class="sh-coins">Monedas: 2</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-06.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Fanático</h2>
+        <p style="white-space: normal;">Ingresar a Shapp 5 días seguidos</p>
+        <p class="sh-coins">Monedas: 5</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-07.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Experto</h2>
+        <p style="white-space: normal;">Calificar/comentar 4 marcas o 4 productos</p>
+        <p class="sh-coins">Monedas: 10</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-08.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Social</h2>
+        <p style="white-space: normal;">Compartir 3 marcas por día</p>
+        <p class="sh-coins">Monedas: 12</p>
+      </div>
+      <div class="item item-avatar">
+        <img src="img/challenges/Retos-09.png" class="sh-challenge-item">
+        <h2 class="sh-tittle">Seguidor x 5</h2>
+        <p style="white-space: normal;">Agregar 5 marcas a mis Shapp por día</p>
+        <p class="sh-coins">Monedas: 10</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

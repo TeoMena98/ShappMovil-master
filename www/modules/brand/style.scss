@@ -1,0 +1,278 @@
+.brand{
+  .animate-show {
+  opacity: 1;
+  }
+  .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+    transition: all linear 0.5s;
+  }
+  .animate-show.ng-hide {
+    opacity: 0;
+    padding: 0 10px;
+  }
+  .sh-brand-logo{
+    img{
+      height: 50vw;
+      width: 50vw;
+    }
+  }
+  .linkMore{
+    bottom: -6vw;
+    @media (min-width: 650px) {
+        bottom: -1vw;
+    }
+    position: absolute;
+    margin-left: 12%;
+    color:#be1e59;
+    font-size: 7vw;
+  }
+  .has-header{
+    @media (min-width: 650px) {
+      top: 60px !important;
+    }
+  }
+  .sheet{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    height: 24px;
+    button{
+      font-size: 24px !important;
+      margin-top: -13px;
+      margin-right: 10px;
+    }
+  }
+  .sh-tree{
+    font-size: 22px;
+    .sh-category{
+      @extend .sheet;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      p{
+        color: $positive;
+        padding-left: 3vw;
+      }
+      button{
+        color: $positive !important;
+      }
+    }
+    .sh-category-2{
+      @extend .sheet;
+      p{
+        color: $positive2;
+        padding-left: 8vw;
+        font-weight: 700;
+      }
+      button{
+        color: $positive2 !important;
+      }
+      
+    }
+    .sh-category-3{
+      @extend .sheet;
+      p{
+        color: $positive3;
+        padding-left: 12vw;
+        font-weight: 800;
+      }
+      button{
+        color: $positive3 !important;
+      }
+      
+    }
+    .sh-products{
+      @extend .sheet;
+      p{
+        color: $positive4;
+        padding-left: 15vw;
+        font-weight: 900;
+      }
+      button{
+        color: $positive4 !important;
+      }
+    }
+  }
+  .sh-brand{
+    background-color: #fff;
+    padding: 8px;
+    color: $positive !important;
+    .sh-brand-name{
+      p{
+        @media screen and (min-height: 650px) {
+        margin-top: 5px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      font-size: 22px;
+      font-weight: bold;
+      }
+    }
+    .sh-brand-desc{
+      font-size: 16px;
+      color:#4c4a4a;
+      a{
+        color: #fff;
+      }
+    }
+    i{
+      font-size: 30px;
+    }
+  }
+  .sh-brand-actions{
+    display: flex;
+    flex-direction:  row;
+    justify-content: space-around;
+    margin-bottom: -5px;
+    button{
+      color: $positive !important;
+      font-size: 28px;
+    }
+  }
+  .sh-catalog{
+    img{
+      width: 100vw;
+      height: 100vw;
+    }
+  }
+  .sh-catalog-name{
+    height: 30px;
+    background-color: $positive;
+    padding: 6px;
+    p{
+      font-weight: bold;
+      color: white;
+      font-size: 20px;
+      @media (min-width: 650px) {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin: 0 0 0px !important;
+      }
+    }
+  }
+}
+.popup-container.modal-comment{ 
+  .popup{
+    min-width: 90%;
+    min-height: 65%;
+  }
+}
+.keyboard-open{ 
+  .popup-container.modal-comment{ 
+    .popup {
+      min-height: 100% !important;
+      .popup-buttons{
+        width: 52.5% !important;
+        display: flex !important;
+        bottom: -3% !important;
+      }
+    }
+  }
+}
+.comment{
+  .close{
+    position: absolute;
+    top: -2%;
+    right: 1%;
+    font-size: 30px;
+    color: $positive;
+  }
+  .bar{
+    height: 88px;
+  }
+  .title{
+    height: 100%;
+    margin-top: 3%;
+  } 
+  .sh-profile-picture{
+    width: 22%;
+    border-radius: 50%;
+  }
+  .overflow-scroll{
+    top: 100px;
+  }
+  .sh-center-v-m{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    i{
+      font-size: 40px;
+      color: $positive;
+    }
+  }
+  .item-stacked-label{
+    border-style: none;
+    padding: 2% 10%;
+  }
+  .input-label{
+    font-size: 20px;
+  }
+  textarea{
+    border: #999 solid 2px;
+  }
+  .button-small{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    font-size: 18px;
+  }
+}
+.modal-comment{
+  .popup-buttons{
+    .button-small{
+      font-size: 17px;
+      padding: 2px 4px 1px;
+      min-height: 30px;
+      line-height: 26px;
+      margin-bottom: 2%;
+      min-width: 100%;
+    }
+  }
+}
+.platform-android{
+  .comment{
+    .bar{
+      @media screen and (min-height: 650px) {
+        height: 27% !important;
+      }
+    }
+    .scroll{
+      @media screen and (min-height: 650px) {
+        margin-top: 30%;
+        height: 65%;
+      }
+    }
+    .content-button{
+      @media screen and (min-height: 650px) {
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}
+.platform-ios{
+  .brand{ 
+    .has-header{
+      @media (min-width: 650px) {
+        top: 80px !important;
+      }
+    }
+  }
+  .comment{
+    .bar{
+      height: 27% !important;
+    }
+    .scroll{
+      margin-top: 30%;
+      height: 65%;
+    }
+    .content-button{
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+
+

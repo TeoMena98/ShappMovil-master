@@ -1,0 +1,31 @@
+<ion-view view-title="" class="video">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart">
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content delegate-handle="main" class="has-header sh-gray-bg zoom">
+    <!--<ion-scroll delegate-handle="inner" direction="xy"
+     locking="false" zooming="true" min-zoom="1"
+     style="width:100%; height: 100%;">
+      <img id="imgZoom" ng-src="{{Zoom.urlImage}}{{$storage.zoomImg}}"  style="display:block; width:100%;margin:auto;transition: all 0.1s ease;-webkit-transition:all 0.1s ease;-moz-transition: all 0.1s ease;-o-transition: all 0.1s ease;-webkit-transform:scale({{zoom}});-moz-transform:scale({{zoom}});-ms-transform:scale({{zoom}});-o-transform:scale({{zoom}});transform:scale({{zoom}});margin-top: calc(27% * {{zoom}});"/>
+    </ion-scroll>-->
+    <div id="gesture-area">
+      <img id="scale-element" src="{{Zoom.urlImage}}{{$storage.zoomImg}}" />
+    </div>
+  </ion-content>
+</ion-view>

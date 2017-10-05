@@ -1,0 +1,11 @@
+{
+  "name": "ShappIonic3",
+  "app_id": "",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk-lite",
+      "version": "10.39.236.1"
+    }
+  ]
+}

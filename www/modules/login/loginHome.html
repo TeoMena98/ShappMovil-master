@@ -1,0 +1,40 @@
+<ion-view hide-nav-bar="true">
+  <ion-content scroll="false" class="login-home" style="display: {{$storage.typeBlock}}">
+    <div class="row sh-center-h">
+      <h4 class="sh-italic sh-padding-top-20">Bienvenido a</h4>
+    </div>
+    <div class="row sh-center-h sh-div-logo">
+      <img class="sh-full-logo" src="img/full-logo.png">
+    </div>
+    <div class="row sh-center-row">
+      <div class="col col-center">
+        <div class="row sh-center-h sh-div-logo">
+          <h4 class="sh-italic sh-padding-top-20" style="margin-bottom: 1vh;">Hola, ¿Cómo quieres iniciar?</h4>
+        </div>
+        <div class="row sh-center-h">
+          <button class="button sh-button-index-bl padding-top" ng-click="login.loginFacebook()">
+            Facebook
+          </button>
+        </div>
+        <div class="row sh-center-h">
+          <button class="button sh-button-index-gr" ui-sref="login">
+            Ya tengo una cuenta
+          </button>
+        </div>
+        <div class="row sh-center-h">
+          <button class="button sh-button-index-gr" ui-sref="register">
+            Regístrate
+          </button>
+        </div>
+        <div class="row sh-center-h">
+          <button class="button sh-button-index-sh" ng-click="login.visitante()">
+            Invitado
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bar sh-bar-footer sh-center-h sh-italic">
+      <span>Multi-catálogo / Promociones / Bonos</span>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view class="bond">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart">
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="bond has-header sh-gray-bg">
+    <div class="list card">
+      <div class="item item-image">
+        <img src="{{Bond.urlImage}}{{$storage.bond.bono}}">
+      </div>
+    </div>
+    <div class="list list-inset">
+      <a class="item item-thumbnail-left">
+        <img src="{{Bond.urlImage}}{{$storage.bond.logoProveedor}}">
+        <p class="sh-center-v">{{$storage.bond.descripcion}}</p>
+      </a>
+    </div>
+    <div class="list list-inset" ng-if="Bond.cod">
+      <div class="item item-icon-right" >
+        {{Bond.cod}}
+        <i class="icon ion-printer" ng-click="Bond.print(Bond.cod)"></i>
+        <i class="icon ion-email" ng-click="Bond.sendMail(Bond.cod)"></i>
+      </div>
+    </div>
+    <button class="button button-block button-positive" ng-click="Bond.showConfirm($storage.bond.idBono)">
+      Comprar
+    </button>
+  </ion-content>
+</ion-view>

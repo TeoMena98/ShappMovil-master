@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col">
+        <button class="button button-positive icon ion-minus-round" ng-click="--item.quantity">
+        </button>
+    </div>
+    <div class="col">
+        <input type="number" ng-model="item.quantity" min=0>
+    </div>
+    <div class="col">
+        <button class="button button-positive icon ion-plus-round" ng-click="++item.quantity">
+        </button>
+    </div>
+    <div class="col">
+        <button class="button button-positive" ng-class="">
+            Eliminar
+        </button>
+    </div>
+</div>

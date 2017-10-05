@@ -1,0 +1,144 @@
+.login-home{
+  background-image: url("../img/background.jpg");
+  background-size: 100%;
+  h4{
+    color: #353131 !important;
+    font-size: 5.5vw;
+    @media screen and (min-height: 650px) {
+     
+    }
+  }
+  .sh-full-logo{
+    width: 80vw;
+    height: 80vw;
+  }
+  .sh-padding-top-20{
+    padding-top: 1vh;
+  }
+  .sh-div-logo{
+    margin-top: -25px !important;
+    .sh-padding-top-20{
+      margin-bottom: 3vh;
+    }
+  }
+  .sh-center-row{
+    height: 36vh;
+  }
+  .sh-italic{
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+  }
+  .sh-bar-footer{
+    bottom: 0px;
+    background-color: $positive;
+    height: 5vh;
+    padding: 0px;
+    padding: 0;
+    color: white;
+    font-size: 4vw;
+    padding-top: 3px;
+    margin-bottom: 1vh;
+    word-wrap: normal;
+    span{
+      width: 100%;
+    }
+    @media screen and (min-height: 650px) {
+     height: 4vh;
+    }
+    @media screen and (max-height: 300px) {
+     height: 32px;
+     font-size: 20px;
+     margin-top: -12px;
+    }
+  }
+  .sh-button-index{
+    @extend .button-light;
+    border: none;
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #C7C7C7 !important;
+    width: 72%;
+    font-size: 20px;
+    border-radius: 0px !important;
+    @media screen and (min-height: 650px) {
+     font-size: 26px;
+    }
+
+  }
+  .sh-button-index-bl{
+    @extend .sh-button-index;
+    color: #455491 !important;
+  }
+  .sh-button-index-sh{
+    @extend .sh-button-index;
+    color: $positive !important;
+    border: none;
+  }
+  .sh-button-index-gr{
+    @extend .sh-button-index;
+    color: #656565 !important;
+  }
+}
+.login{
+  background-color: $positive;
+  .sh-full-logo{
+    margin-top: 8vh;
+    height: 40vh;
+    img{
+      width: 30vh;
+      height: 30vh;
+      @media screen and (max-height: 300px) {
+       display: none;
+      }
+    }
+  }
+  .sh-big-row{
+    height: 47vh;
+    @media screen and (max-height: 300px) {
+     height: 2vh;
+   }
+  }
+  .sh-medium-row{
+    height: 36vh;
+    @media screen and (max-height: 300px) {
+     height: 4vh;
+   }
+  }
+  .sh-transparent-button{
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+  }
+  .sh-back-footer{
+    bottom: 0px;
+    background-color: $positive;
+    height: 50px;
+    padding: 0px;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    button{
+      font-size: 30px;
+      background-color: $positive;
+      color: white;
+    }
+  }
+  .sh-back-logo{
+    width: 30px;
+    height: 30px;
+    margin-left: 2px;
+  }
+  .sh-input-list{
+    background-color: rgba(255, 255, 255, 0);
+    width: 96%;
+    .sh-first-item{
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+    }
+    .sh-last-item{
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+  }
+}

@@ -1,0 +1,152 @@
+<ion-view view-title="" class="comments">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png" style="width: initial;border-radius: initial;">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header brand sh-gray-bg">
+    <div class="sh-center-h sh-brand-logo" adaptive-background>
+      <div class="sh-center-v">
+        <img ng-src="{{Comment.urlImage}}{{Comment.logo}}" id="logo" crossOrigin="Anonymous">
+      </div>
+    </div>
+    <div class="sh-video-title">
+      <div class="sh-brand-name sh-follow-container">
+        <p>{{$storage.brand.nombre}}</p>
+      </div>
+    </div>
+    <div class="sh-video">
+      <div class="sh-brand-name sh-follow-container">
+        <p>Comentarios</p>
+      </div>
+    </div>
+    <div class="sh-video-list">
+      <div class="bar b">
+        <h1 class="title" style="height: 100%;">
+          <img class="sh-profile-picture" src="{{$storage.user.picture}}" ng-if="$storage.user.picture">
+          <img src="img/profile.jpg" ng-if="!$storage.user.picture">  
+        </h1>
+      </div>
+      <div class="sh-center-v-m">
+        {{$storage.user.name}}
+      </div>  
+      <div class="sh-center-v-m cal" ng-if="Comment.userQualify == 'false'">
+        <i class="ion-android-star" ng-if="Comment.form.calificacion >= 1" ng-click="Comment.plusCal(1)"></i>
+        <i class="ion-android-star" ng-if="Comment.form.calificacion >= 2" ng-click="Comment.plusCal(2)"></i>
+        <i class="ion-android-star" ng-if="Comment.form.calificacion >= 3" ng-click="Comment.plusCal(3)"></i>
+        <i class="ion-android-star" ng-if="Comment.form.calificacion >= 4" ng-click="Comment.plusCal(4)"></i>
+        <i class="ion-android-star" ng-if="Comment.form.calificacion >= 5" ng-click="Comment.plusCal(5)"></i>
+        <i class="ion-android-star-outline" ng-if="Comment.form.calificacion < 1" ng-click="Comment.plusCal(1)"></i>
+        <i class="ion-android-star-outline" ng-if="Comment.form.calificacion < 2" ng-click="Comment.plusCal(2)"></i>
+        <i class="ion-android-star-outline" ng-if="Comment.form.calificacion < 3" ng-click="Comment.plusCal(3)"></i>
+        <i class="ion-android-star-outline" ng-if="Comment.form.calificacion < 4" ng-click="Comment.plusCal(4)"></i>
+        <i class="ion-android-star-outline" ng-if="Comment.form.calificacion < 5" ng-click="Comment.plusCal(5)"></i>
+      </div>
+      <div class="">
+        <textarea rows="3" ng-model="Comment.form.comment" id="comment" placeholder="Comentar"></textarea>
+      </div>
+      <button class="button button-small button-positive" style="width:80%" ng-click="Comment.sendComment()">
+        Enviar
+      </button>
+    </div>
+    <div class="sh-video-list" ng-repeat="datos in Comment.comment">
+      <div class="list" style="margin-bottom:5%;">
+        <a class="item item-avatar">
+          <img class="sh-profile-picture" src="http://graph.facebook.com/{{datos.uuidFacebook}}/picture?type=large" ng-if="datos.uuidFacebook != 0">
+          <img src="img/profile.jpg" ng-if="datos.uuidFacebook == 0">  
+          <h2>{{datos.nombreUsuario}}</h2>
+          <p>
+            <i class="ion-android-star" ng-if="datos.calificacion >= 1"></i>
+            <i class="ion-android-star" ng-if="datos.calificacion >= 2"></i>
+            <i class="ion-android-star" ng-if="datos.calificacion >= 3"></i>
+            <i class="ion-android-star" ng-if="datos.calificacion >= 4"></i>
+            <i class="ion-android-star" ng-if="datos.calificacion >= 5"></i>
+            <i class="ion-android-star-outline" ng-if="datos.calificacion < 1"></i>
+            <i class="ion-android-star-outline" ng-if="datos.calificacion < 2"></i>
+            <i class="ion-android-star-outline" ng-if="datos.calificacion < 3"></i>
+            <i class="ion-android-star-outline" ng-if="datos.calificacion < 4"></i>
+            <i class="ion-android-star-outline" ng-if="datos.calificacion < 5"></i>
+            {{datos.fechaComentario}}
+          </p>
+          <p>
+            {{datos.comentario}}
+            <p ng-click="Comment.getCommentByFather(datos.id)" ng-if="!Comment.child[datos.id]" style="float: right;">Respuestas</p>
+            <div style="margin-left: 5%;{{$index > 0 ? 'margin-top: 15%;':''}}" ng-if="Comment.child[datos.id]" ng-repeat="child in Comment.child[datos.id]">
+              <img src="img/profile.jpg" style="width:10%" ng-if="child.uuidFacebook == 0">
+              <h2>{{child.nombreUsuario}}</h2>
+              <i class="ion-android-star" ng-if="child.calificacion >= 1"></i>
+              <i class="ion-android-star" ng-if="child.calificacion >= 2"></i>
+              <i class="ion-android-star" ng-if="child.calificacion >= 3"></i>
+              <i class="ion-android-star" ng-if="child.calificacion >= 4"></i>
+              <i class="ion-android-star" ng-if="child.calificacion >= 5"></i>
+              <i class="ion-android-star-outline" ng-if="child.calificacion < 1"></i>
+              <i class="ion-android-star-outline" ng-if="child.calificacion < 2"></i>
+              <i class="ion-android-star-outline" ng-if="child.calificacion < 3"></i>
+              <i class="ion-android-star-outline" ng-if="child.calificacion < 4"></i>
+              <i class="ion-android-star-outline" ng-if="child.calificacion < 5"></i>
+             <span style="color: #666;font-size: 14px;">{{child.fechaComentario}}</span>
+              <p>{{child.comentario}}</p>
+              <div ng-click="Comment.activedComment(child.id)" style="float: left;"><p>Comentar</p></div>
+              <div  ng-click="Comment.getCommentByFather(child.id)" ng-if="!Comment.child[child.id]" style="float: right;"><p>Respuestas</p></div>
+              <div style="margin-left: 15%;margin-top: 15%;" ng-if="Comment.child[child.id]" ng-repeat="child2 in Comment.child[child.id]">
+                <img src="img/profile.jpg" style="width:10%" ng-if="child.uuidFacebook == 0">
+                <h2>{{child2.nombreUsuario}}</h2>
+                <i class="ion-android-star" ng-if="child2.calificacion >= 1"></i>
+                <i class="ion-android-star" ng-if="child2.calificacion >= 2"></i>
+                <i class="ion-android-star" ng-if="child2.calificacion >= 3"></i>
+                <i class="ion-android-star" ng-if="child2.calificacion >= 4"></i>
+                <i class="ion-android-star" ng-if="child2.calificacion >= 5"></i>
+                <i class="ion-android-star-outline" ng-if="child2.calificacion < 1"></i>
+                <i class="ion-android-star-outline" ng-if="child2.calificacion < 2"></i>
+                <i class="ion-android-star-outline" ng-if="child2.calificacion < 3"></i>
+                <i class="ion-android-star-outline" ng-if="child2.calificacion < 4"></i>
+                <i class="ion-android-star-outline" ng-if="child2.calificacion < 5"></i>
+                <span style="color: #666;font-size: 14px;">{{child2.fechaComentario}}</span>
+                <p>{{child2.comentario}}</p>
+                <div ng-click="Comment.openModal(child2)" style="float: left;"><p>Comentar</p></div>
+                <div ng-click="Comment.openModal(child2)" ng-if="!Comment.child[child2.id]" style="float: right;"><p>Respuestas</p></div>
+              </div>
+              <form style="margin-top: 15%;" ng-if="Comment.valid[child.id]" ng-submit="Comment.commentByFather(child.id)">
+                <input type="text" placeholder="Comentar" ng-model="Comment.form.commentFather[child.id]">
+                <i class="ion-android-send" ng-click="Comment.commentByFather(child.id)" style="float: right;margin-top: -13%;font-size: 20px;margin-right: 10%;"></i>
+              </form>
+            </div>
+          </p>
+          <form ng-if="Comment.valid[datos.id]" ng-submit="Comment.commentByFather(datos.id)">
+            <input type="text" placeholder="Comentar" ng-model="Comment.form.commentFather[datos.id]" style="float: left;margin-bottom: 10%;">
+            <i class="ion-android-send" ng-click="Comment.commentByFather(datos.id)" style="float: right;margin-top: 7%;font-size: 20px;margin-right: 10%;"></i>
+          </form>
+          <div class="close" ng-if="datos.currentUserPropietario" ng-click="Comment.deleteComment(datos.id)">
+            <i class="ion-close-round"></i>
+          </div>
+        </a>
+        <div class="chatbubble" ng-if="!datos.currentUserComent" ng-click="Comment.activedComment(datos.id)">
+          <i class="ion-ios-chatbubble"></i>
+        </div>
+        <div class="chatbubble-b" ng-if="datos.currentUserComent" ng-click="Comment.activedComment(datos.id)">
+          <i class="ion-ios-chatbubble"></i>
+        </div>
+        <div class="thumbsup" ng-if="!datos.likedCurrentUser" ng-click="Comment.likedComment(datos.id,datos.likedCurrentUser)">
+          <i class="ion-thumbsup"></i>
+        </div>
+        <div class="thumbsup-b" ng-if="datos.likedCurrentUser" ng-click="Comment.likedComment(datos.id,datos.likedCurrentUser)">
+          <i class="ion-thumbsup"></i>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

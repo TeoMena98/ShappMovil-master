@@ -1,0 +1,59 @@
+<ion-view view-title="" class="trend">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+    <div class="sh-url sh-center-v">
+      <p>
+        Reporta un problema
+      </p>
+    </div>
+  </ion-nav-bar>
+  <ion-content class="has-header login-home">
+    <div class="row sh-center-h sh-div-logo" style="margin-top: 0 !important;">
+      <img class="sh-full-logo" src="img/alta-voz.png" style="width: 30vw;height: 30vw;">
+    </div>
+    <div class="row">
+      <div class="col col-center">
+        <div class="row sh-center-h sh-div-logo" style="text-align: justify;color: #666;margin-top: 0 !important;">
+          <p style="font-size: 30px;">HELP ME SHAPP</p>
+        </div>
+        <div class="row sh-center-h sh-div-logo" style="text-align: justify;color: #666;margin-top: 0 !important;font-style: italic;font-size: 16px;">
+          Cuéntanos...
+        </div>
+        <div class="row sh-center-h sh-div-logo" style="text-align: justify;color: #666;margin-top: -1% !important;font-style: italic;font-size: 16px;">
+          ¿En qué te podemos ayudar?
+        </div>
+        <div class="row sh-center-h sh-div-logo" style="text-align: justify;color: #666;margin-top: 2% !important;font-style: italic;font-size: 12px;">
+          Para: shapp@intap.com.co
+        </div>
+        <div class="row sh-center-h row-center sh-big-row">
+          <div class="list list-inset sh-input-list" style="background-color: transparent;width: 100%">
+            <label class="item item-input sh-first-item sh-last-item" style="padding: 0;">
+              <textarea ng-model="HelpMe.form.help" style="height: 180px;border: #BE1E59 1px solid;padding: 2%;" placeholder="¿En qué te podemos ayudar?"></textarea>
+            </label>
+            <div class="row sh-center-h">
+              <button class="button sh-inside-button button-small" ng-click="HelpMe.sendMail()">
+                Enviar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

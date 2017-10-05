@@ -1,0 +1,166 @@
+.comments{
+  .has-header{
+    @media (min-width: 650px) {
+      top: 60px !important;
+    }
+  }
+  .sh-video-title{
+  	width: 100%;
+  	background-color: $positive;
+    padding: 8px;
+    color: white !important;
+    p{
+    	margin: 0 0 0;
+    	font-size: 22px;
+      font-weight: bold;
+      
+    }
+  }
+  .bar-footer{
+    position:absolute !important;
+    i{
+      color:$positive;
+    }
+  }
+  .sh-video{
+  	width: 100%;
+  	background-color: $positive2;
+    padding: 8px;
+    color: white !important;
+    p{
+    	margin: 0 0 0;
+    	font-size: 22px;
+      font-weight: bold;
+    }
+  }
+  .sh-video-list{
+    width: 90%;
+    margin-left: 5%;
+    background-color: #fff;
+    box-shadow: 0px 3px 18px 0px rgba(50, 50, 50, 0.74);
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 3%;
+    .youtube{
+      margin-right: 1%;
+    }
+    .item{
+      p{
+        white-space: normal !important;
+      }
+    }
+  }
+  .b{
+    height: 35px;
+    @media (min-width: 650px) {
+      height: 80px !important;
+    }
+  }
+  .cal{
+    font-size: 34px;
+    color: $positive;
+  }
+  .bar{
+    position: static;
+    background-image: none;
+    img{
+      width: 10%;
+      border-radius: 50%;
+    }
+  }
+  textarea{
+    width: 80%;
+    border: solid 1px $positive;
+    margin-top: 5px;
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
+  input[type="text"]{
+    width: 70%;
+    border-bottom: solid 1px $positive;
+    margin-top: 5px;
+    margin-left: 5%;
+    margin-bottom: 5px;
+  }
+  .item{
+    margin: 0;
+    border-style: none;
+    text-align: left;
+    i{
+      color: $positive;
+    }
+    .close{
+      position: absolute;
+      right: 10px;
+      top: 0;
+      font-size: 25px;
+    }
+  }
+  .chatbubble{
+    position: absolute;
+    left: 10px;
+    bottom: -40px;
+    font-size: 30px;
+    color: #BE1E59;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 3;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+  .thumbsup{
+    position: absolute;
+    right: 10px;
+    bottom: -40px;
+    font-size: 30px;
+    color: #BE1E59;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 3;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+  .chatbubble-b{
+    position: absolute;
+    left: 10px;
+    bottom: -40px;
+    font-size: 30px;
+    color: #fff;
+    background-color: #BE1E59;
+    border-radius: 50%;
+    z-index: 3;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+  .thumbsup-b{
+    position: absolute;
+    right: 10px;
+    bottom: -40px;
+    font-size: 30px;
+    color: #fff;
+    background-color: #BE1E59;
+    border-radius: 50%;
+    z-index: 3;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+}
+.modal-comment{
+  .popup-buttons{
+    z-index: 1;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    display: block;
+  }  
+}
+.platform-ios{
+  .comments{ 
+    .has-header{
+      @media (min-width: 650px) {
+        top: 80px !important;
+      }
+    }
+  }
+}

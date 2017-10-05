@@ -1,0 +1,48 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+$positive:  #BE1E59 !default;
+$positive2:	#99244B !default;
+$positive3:	#81213F !default;
+$positive4:	#6A1A33 !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+@import "www/index";
+@import "www/modules/login/style";
+@import "www/modules/home/style";
+@import "www/modules/search/style";
+@import "www/modules/register/style";
+@import "www/modules/brand/style";
+@import "www/modules/catalog/style";
+@import "www/modules/product/style";
+@import "www/modules/bonds/style";
+@import "www/modules/category/style";
+@import "www/modules/comment/style";
+@import "www/modules/gamification/style";
+@import "www/modules/level/style";
+@import "www/modules/map/style";
+@import "www/modules/mybonds/style";
+@import "www/modules/myshapp/style";
+@import "www/modules/notice/style";
+@import "www/modules/profile/style";
+@import "www/modules/trend/style";
+@import "www/modules/video/style";
+@import "www/modules/zoom/style";
+@import "www/modules/ecom/style";

@@ -1,0 +1,40 @@
+<ion-view view-title="" class="trend">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+    <div class="sh-url sh-center-v">
+      <p>
+        Tendencias
+      </p>
+    </div>
+  </ion-nav-bar>
+  <ion-content class="has-header sh-gray-bg">
+    <div ng-repeat="(key, value) in Trends.trends" style="margin-top: 1%;">
+      <p>{{key}}</p>
+      <div class="sh-item-container">
+        <ion-slide-box show-pager="false" delegate-handle="shapps">
+          <ion-slide ng-repeat="page in Trends.trends[key]">
+            <span ng-repeat="trend in page">
+              <div class="sh-item" ng-style="{'background-image':'url({{Trends.urlImage}}{{trend.imgUrl}})','width':'30vw','height':'31vw'}"  ng-click="Trends.showProduct(trend)""></div>
+            </span>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

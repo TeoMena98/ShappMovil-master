@@ -1,0 +1,73 @@
+<ion-view view-title="Mis Shapps">
+  <ion-nav-bar align-title="center">
+    <ion-nav-buttons side="left">
+      <a ng-click="myGoBack()">
+        <md-button aria-label="back">
+          <img class="backButton" src="images/ShappBack.png"></img>
+        </md-button>
+      </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-navicon color"
+      menu-toggle="right">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header">
+    <ion-refresher
+      pulling-text="Actualizar..."
+      on-refresh="refresh()">
+    </ion-refresher>
+    <md-progress-circular ng-show="loading" id="prog" md-mode="indeterminate">
+    </md-progress-circular>
+    <label ng-hide="hide" class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" ng-model="search.$" placeholder="Buscar">
+    </label>
+    <div class="noNoticias" ng-if="noMarcas">
+      <img src="images/noMarcas.png"> <br>
+      <p>Aún no tienes suscritos.</p>
+      <p>Anímate a seguir a tus marcas favoritas</p>
+    </div>
+    <div class="list marcasList" ng-hide="noMarcas">
+      <div class="list card marca" ng-click="keepMarca(marca)"
+      ng-repeat= "marca in marcasSuscritas | filter:search">
+        <a href="#/marca/{{marca.id}}">
+          <div class="item item-avatar listHeader">
+            <img img-preload class="fade"
+            ng-src="{{urlImg}}{{marca.logo}}">
+            <h2>{{marca.nombre}}</h2>
+          </div>
+        </a>
+        <ion-scroll class="horList" has-bouncing="true" direction = "xy">
+          <div class="horItem" ng-repeat="catalogo in marca.catalogos">
+            <a ng-click="keepCatalogo(catalogo.nombre)"
+            href="#/categorias/{{catalogo.id}}">
+            <figure class="catHorItem">
+              <img img-preload class="fade"
+              ng-src="{{urlImg}}{{catalogo.logo}}" alt="">
+              <figcaption>{{catalogo.nombre}}</figcaption>
+            </figure>
+            </a>
+          </div>
+        </ion-scroll>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <a class="historyButton" href="#/historial">
+      <md-button aria-label="notificaciones">
+        <img src="images/notificaciones-icon.png" alt="">
+      </md-button>
+    </a>
+    <md-button ng-click="show()" aria-label="busqueda">
+      <img src="images/search-icon.png" alt="">
+    </md-button>
+    <a class="addButton" href="#/busqueda">
+      <md-button  aria-label="agregar">
+        <img src="images/plusMagenta-icon.png" alt="">
+      </md-button>
+    </a>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,91 @@
+<ion-view>
+<div class="sh-welcome sh-center-v" ng-if="Home.welcome.val">
+  <div class="sh-center-h">
+    <div class= "sh-profile" style="background-image:url('{{$storage.user.picture}}')" ng-if="$storage.user.picture">
+      <img class= "sh-logo" src="img/logo-small.png">
+    </div>
+    <div class= "sh-profile" style="background-image:url('/img/profile.jpg')" ng-if="!$storage.user.picture">
+      <img class= "sh-logo" src="img/logo-small.png">
+    </div>
+  </div>
+  <div class="sh-center-h">
+    <p class="sh-name">{{$storage.user.name}}</p>
+  </div>
+  <div class="sh-center-h">
+    <p class="sh-text">Estás en</p>
+  </div>
+  <div class="sh-center-h">
+    <img class="sh-logo-name" src="img/nombre-color.png">
+  </div>
+</div>
+<ion-nav-bar class="bar-positive sh-center-v" ng-show="!Home.welcome.val">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <ion-nav-title>
+    <div class="sh-center-h">
+      <div class="sh-center-v">
+        <button class="sh-bar-button">
+          <img src="img/logo-home.png">
+        </button>  
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right" class="sh-center-h">
+    <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+    <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" ng-if="$storage.countShop.length > 0">
+      <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content class="has-header sh-gray-bg level">
+  <div class="item item-avatar" style="margin-bottom: 5%;">
+      <img class="sh-profile-picture" src="{{$storage.user.picture}}" ng-if="$storage.user.picture">
+      <img class="sh-profile-picture" src="img/profile.jpg" ng-if="!$storage.user.picture">  
+      <div style="margin-top: 3vw;">
+        <b>{{$storage.user.name}}</b>
+      </div>
+      <div class="sh-userInfo">
+        <img class="sh-conis-icon" src="img/MONEDAS-1.png"/>
+        {{$storage.user.coins}}
+        <br>
+        <i class="icon ion-trophy"></i>
+        {{$storage.uuid.uuid.level}}
+      </div>
+      <div class="sh-info">
+        Con Shapp acumula puntos y sube de nivel
+      </div>
+    </div>
+  <div class="list card">
+    <div class="item item-avatar {{validLevelB}}">
+      <img src="img/level/logros-02.png" class="sh-challenge-item">
+      <h2 class="sh-tittle">Shapp baby</h2>
+      <p>Puntos: 3XP</p>
+    </div>
+    <div class="item item-avatar {{validLevelKd}}">
+      <img src="img/level/logros-03.png" class="sh-challenge-item">
+      <h2 class="sh-tittle">Shapp kids</h2>
+      <p>Puntos: 50XP</p>
+    </div>
+    <div class="item item-avatar {{validLevelY}}">
+      <img src="img/level/logros-04.png" class="sh-challenge-item">
+      <h2 class="sh-tittle">Shapp young</h2>
+      <p>Puntos: 100XP</p>
+    </div>
+    <div class="item item-avatar {{validLevelW}}">
+      <img src="img/level/logros-05.png" class="sh-challenge-item">
+      <h2 class="sh-tittle">Shapp warrior</h2>
+      <p>Puntos: 150XP</p>
+    </div>
+    <div class="item item-avatar {{validLevelKg}}">
+      <img src="img/level/logros-06.png" class="sh-challenge-item">
+      <h2 class="sh-tittle">Shapp king</h2>
+      <p>Puntos: 240XP</p>
+    </div>
+    <div class="item item-avatar {{validLevelM}}">
+      <img src="img/level/logros-07.png" class="sh-challenge-item">
+      <h2 class="sh-tittle">Shapp master</h2>
+      <p>Puntos: 450XP</p>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

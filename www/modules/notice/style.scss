@@ -1,0 +1,48 @@
+.video{
+  .sh-video-title{
+  	width: 100%;
+  	background-color: $positive;
+    padding: 8px;
+    color: white !important;
+    p{
+    	margin: 0 0 0;
+    	font-size: 22px;
+      font-weight: bold;
+    }
+  }
+  .sh-video{
+  	width: 100%;
+  	background-color: $positive2;
+    padding: 8px;
+    color: white !important;
+    p{
+    	margin: 0 0 0;
+    	font-size: 22px;
+      font-weight: bold;
+    }
+  }
+  .sh-video-list{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+    background-color: #fff;
+    box-shadow: 0px 3px 18px 0px rgba(50, 50, 50, 0.74);
+    text-align: center;
+    padding-top: 2%;
+    .youtube{
+      margin-right: 1%;
+    }
+  }
+  .has-header{
+    @media (min-width: 650px) {
+      top: 60px !important;
+    }
+  }
+}
+.platform-ios{
+  .video{ 
+    .has-header{
+      top: 80px !important;
+    }
+  }
+}

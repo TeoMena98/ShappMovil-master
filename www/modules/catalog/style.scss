@@ -1,0 +1,29 @@
+.catalog{
+	.sh-catalog-img{
+    img{
+      width: 50vw;
+      height: 50vw;
+    }
+  }
+  .sh-breadcrumbs{
+    color: white;
+    font-size: 22px;
+    div{
+      @extend .sh-center-v;
+      height: 30px;
+      padding: 5px;
+    }
+    div:nth-child(1){
+      background-color: $positive;
+    }
+    div:nth-child(2){
+      background-color: $positive2;
+    }
+    div:nth-child(3){
+      background-color: $positive3;
+    }
+    div:nth-child(4){
+      background-color: $positive4;
+    }
+  }
+}

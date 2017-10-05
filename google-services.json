@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "333898278488",
+    "firebase_url": "https://atomic-bird-147421.firebaseio.com",
+    "project_id": "atomic-bird-147421",
+    "storage_bucket": "atomic-bird-147421.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333898278488:android:76d8a941994391f1",
+        "android_client_info": {
+          "package_name": "co.com.intap.shapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333898278488-pn5onjmddokckh1hihh1fm9n9g5m512l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA93fHyS2fDljDcz4n9CXBg-Z99POm_Go"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

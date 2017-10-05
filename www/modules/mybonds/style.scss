@@ -1,0 +1,69 @@
+.mybonds{
+  .sh-brands-container{
+    justify-content:  space-around;
+  }
+  .sh-brand{
+  	@extend .sh-item;
+  	width: 30vw;
+  	height: 30vw;
+  	margin: 5px 1vw 5px 1vw;
+  }
+  p {
+    color: #BE1E59;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .has-header{
+    top: 80px;
+    @media (min-width: 650px) {
+      top: 100px !important;
+    }
+  }
+  .list{
+    .item{
+      border-bottom: 1px dashed $positive;
+      padding-top: 16px;
+      min-height: 80px;
+      img:first-child{
+        max-width: 60px;
+        max-height: 60px;
+      }
+      p{
+        width: 90%;
+        text-align: justify;
+        vertical-align: middle;
+        min-height: 72px;
+        white-space: normal;
+      }
+      .icon{
+        color: $positive;
+      }
+      .icon.ion-printer{
+        right: 50px;
+      }
+    }
+  }
+}
+.sh-url{
+  height: 40px;
+  background-color: $positive2;
+  z-index: 10;
+  p{
+    margin-top: 8px;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}
+.platform-ios{
+  .mybonds{ 
+    .sh-url{
+      margin-top: 64px;
+    }
+    .has-header{
+      top: 104px !important;
+    }
+  }
+}

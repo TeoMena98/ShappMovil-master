@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-nav-bar class="color" style="color:white">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-chevron-left" style="color:white" ng-click="goBack()">
+      </button>
+    </ion-nav-buttons>
+    <div flex class="center">
+      <md-button class="shapp-bar">
+        <img src="images/shapp-bar.png">
+      </md-button>
+    </div>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-search" style="color:white">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header">
+  <md-progress-circular ng-show="loading" id="prog" md-mode="indeterminate"></md-progress-circular>
+  <img ng-src="{{noticia.imagen}}" style="width:100vw;height:100vw">
+  <div class="md-padding" style="background-color:#be1e59;color:white;font-size:22px;margin-top:-5px">
+    <b>{{noticia.marca}}</b>
+  </div>
+  <div class="md-padding" style="background-color:#95274b;color:white;font-size:20px">
+    <b>Noticia</b>
+  </div>
+  <div class="md-padding">
+    {{noticia.descripcion}}
+  </div>
+  </ion-content>
+</ion-view>

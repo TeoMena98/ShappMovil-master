@@ -1,0 +1,130 @@
+.sh-center-v{
+  display:  flex;
+  flex-direction:  column;
+  justify-content:  center;
+}
+.bar .button.back-button, .bar button.back-button{
+  text-align: left;
+  display: block;
+}
+.sh-center-h{
+  display:  flex;
+  flex-direction:  row;
+  justify-content:  center;
+}
+.sh-gray-bg{
+  background-color: rgba(234, 234, 234, 0.54);
+}
+.bar-header{
+  .title{
+    height: 100%;
+  }
+  @media (min-width: 650px) {
+    height: 60px !important;
+  }
+}
+.sh-bar-button{
+  background-color: transparent;
+  border: none;
+  z-index: 20;
+  height: 40px;
+  img{
+    margin-top: 4px;
+    height: 34px;
+  }
+  @media (min-width: 650px) {
+    height: 60px;
+    img{
+      height: 50px;
+    }
+  }
+}
+.sh-item{
+    height: 33vw; 
+    width: 33vw; 
+    margin: 0 2px;
+    display: inline-block;
+    vertical-align: middle;
+    background: white;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+.sh-inside-button{
+  @extend .button-positive;
+  //width: 80%;
+  bottom: 20px;
+  z-index: 100;
+  padding: 10px 30px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 15px 24px -7px rgba(0,0,0,0.55);
+  -moz-box-shadow: 0px 15px 24px -7px rgba(0,0,0,0.55);
+  box-shadow: 0px 15px 24px -7px rgba(0,0,0,0.55);
+}
+@media (min-width: 680px){
+  .modal{
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+.sh-item-container{
+  margin-top: 5px;
+  margin-left: 10px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.sh-hlist{
+  margin-top: 5px;
+    p{
+      color: $positive;
+      font-weight: bold;
+      font-size: 20px;
+      margin-left: 10px;
+    }
+  }
+.sh-follow-button{
+  bottom: 26px;
+  width: 47px;
+  background-color: white !important;
+  font-size: 40px;
+  color: $positive !important;
+  border-radius: 200px;
+  -webkit-box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.75);
+  box-shadow: #797676 0px 2px 6px !important;
+}
+.sh-follow-container{
+  display: flex !important; 
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+.platform-ios{
+  div.title.title-center.header-item{
+    left: 0 !important;
+    right: 0 !important;
+    height: 100%
+  }
+  .bar-header{
+    @media (min-width: 650px) {
+      height: 80px !important;
+    }
+  }
+  .item-menu{
+    font-family: initial;
+  }
+}
+.sh-url{
+  @media (min-width: 650px) {
+    margin-top: 60px !important;
+  }
+}
+.badge:empty{
+  display: none !important;
+}

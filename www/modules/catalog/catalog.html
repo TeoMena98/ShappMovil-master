@@ -1,0 +1,69 @@
+<ion-view>
+<ion-nav-bar class="bar-positive sh-center-v">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <div class="sh-center-h">
+    <div class="sh-center-v">
+      <button class="sh-bar-button">
+        <img src="img/logo-home.png">
+      </button>  
+    </div>
+  </div>
+  <ion-nav-buttons side="right" class="sh-center-h">
+    <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="search"></button>
+    <button class="button button-icon button-clear ion-ios-cart sh-right-button" ></button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content class="has-header catalog sh-gray-bg">
+  <div class="sh-center-h sh-catalog-img" adaptive-background>
+    <div class="sh-center-v">
+      <img ng-src="{{Catalog.urlImage}}{{$storage.catalog.logo}}" id="logo" crossOrigin="Anonymous">
+    </div>
+  </div>
+  <div class="sh-breadcrumbs">
+    <div>
+      <div class="sh-follow-container">
+        <span>{{$storage.brand.nombre}}</span>
+        <button class="button button-icon button-clear sh-follow-button" ng-class="Catalog.icon" ng-click="Catalog.liked()"></button>  
+      </div>
+    </div>
+    <div>
+      {{$storage.catalog.nombre}}
+    </div>
+  </div>
+  <div>
+  
+  <!-- Si el catálogo tiene categorías y las categorías productos-->
+    <span ng-repeat="category in Catalog.categories" ng-if="Catalog.case1">
+      <div class="sh-hlist">
+        <p>{{category.nombre}}</p>
+        <div class="sh-item-container">
+          <span ng-repeat="product in category.products">
+            <div class="sh-item" ng-style="{'background-image':'url({{Catalog.urlImage}}{{product.imgUrl}})'}"></div>
+          </span>
+        </div>
+      </div>
+    </span>
+    <!-- Si el catálogo tiene categorías y las categorías subcategorías ng-if="Catalog.case2"-->
+    <span ng-repeat="category in Catalog.categories">
+      <div class="sh-hlist">
+        <p>{{category.nombre}}</p>
+        <div class="sh-item-container">
+          <span ng-repeat="subCategory in category.subCategories" ng-click="Catalog.showCategory(subCategory)">
+            <div class="sh-item" ng-style="{'background-image':'url({{Catalog.urlImage}}{{subCategory.logo}})'}"></div>
+          </span>
+        </div>
+      </div>
+    </span>
+    <!-- Si el catálogo tiene productos-->
+    <span ng-repeat="product in $storage.catalog.products" ng-if="Catalog.case3">
+      <div class="sh-hlist">
+        <div class="sh-item-container">
+            <div class="sh-item" ng-style="{'background-image':'url({{Catalog.urlImage}}{{product.imgUrl}})'}"></div>
+        </div>
+      </div>
+    </span>
+  </div>
+</ion-content>
+</ion-view>
+

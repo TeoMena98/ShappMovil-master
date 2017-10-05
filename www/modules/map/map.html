@@ -1,0 +1,44 @@
+<ion-view view-title="" class="map">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" ng-if="$storage.countShop.length > 0">
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header map sh-gray-bg">
+    <ui-gmap-google-map center='Map.map.center' zoom='Map.map.zoom'>
+      <ui-gmap-marker
+        ng-repeat="marker in Map.almacenes"
+        idKey='marker.id'
+        coords='marker.coords'
+        options="marker.options">
+      </ui-gmap-marker>
+    </ui-gmap-google-map>
+    <div class="sh-title">
+      <div class="sh-brand-name sh-follow-container">
+        <p>{{$storage.brand.nombre}}</p>
+      </div>
+    </div>
+    <div class="sh-address">
+      <div class="sh-brand-name sh-follow-container {{Map.item == -1 ? 'sh-addres-name' : ''}}" ng-click="Map.addressDefault()" style="border-bottom: #4a4646 dashed 1px;">
+        <p>Ver todas las direcciones</p>
+      </div>
+      <div ng-click="Map.address(dir)" class="sh-brand-name sh-follow-container {{Map.item == dir.id ? 'sh-addres-name' : ''}}" ng-repeat="dir in Map.almacenesDefault" style="border-bottom: #4a4646 dashed 1px;">
+        <p>{{dir.direccion}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

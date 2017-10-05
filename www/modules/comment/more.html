@@ -1,0 +1,64 @@
+<ion-modal-view class="comments" on-swipe-down="">
+	<ion-content>
+		<div class="sh-video-list" style="margin-left:0;width:100%;height: calc(100% - 44px);">
+			<div class="list" style="max-height: calc(100%);overflow: scroll;">
+		        <a class="item item-avatar">
+		          <img src="img/profile.jpg">  
+		          <h2>{{$storage.data.nombreUsuario}}</h2>
+		          <p>
+		            <i class="ion-android-star" ng-if="$storage.data.calificacion >= 1"></i>
+		            <i class="ion-android-star" ng-if="$storage.data.calificacion >= 2"></i>
+		            <i class="ion-android-star" ng-if="$storage.data.calificacion >= 3"></i>
+		            <i class="ion-android-star" ng-if="$storage.data.calificacion >= 4"></i>
+		            <i class="ion-android-star" ng-if="$storage.data.calificacion >= 5"></i>
+		            <i class="ion-android-star-outline" ng-if="$storage.data.calificacion < 1"></i>
+		            <i class="ion-android-star-outline" ng-if="$storage.data.calificacion < 2"></i>
+		            <i class="ion-android-star-outline" ng-if="$storage.data.calificacion < 3"></i>
+		            <i class="ion-android-star-outline" ng-if="$storage.data.calificacion < 4"></i>
+		            <i class="ion-android-star-outline" ng-if="$storage.data.calificacion < 5"></i>
+		            {{$storage.data.fechaComentario}}
+		          </p>
+		          <p>
+		            {{$storage.data.comentario}}
+		          </p>
+			        <div class="close" ng-click="Comment.closeModal()">
+			            <i class="ion-close-round"></i>
+			        </div>
+		        </a>
+		        <div ng-if="Comment.childModal" style="margin-left: 10%;">
+		        	<div class="list">
+				        <a class="item item-avatar" ng-repeat="child3 in Comment.childModal">
+				          <img src="img/profile.jpg">  
+				          <h2>{{child3.nombreUsuario}}</h2>
+				          <p>
+				        	  <i class="ion-android-star" ng-if="child3.calificacion >= 1"></i>
+				              <i class="ion-android-star" ng-if="child3.calificacion >= 2"></i>
+				              <i class="ion-android-star" ng-if="child3.calificacion >= 3"></i>
+				              <i class="ion-android-star" ng-if="child3.calificacion >= 4"></i>
+				              <i class="ion-android-star" ng-if="child3.calificacion >= 5"></i>
+				              <i class="ion-android-star-outline" ng-if="child3.calificacion < 1"></i>
+				              <i class="ion-android-star-outline" ng-if="child3.calificacion < 2"></i>
+				              <i class="ion-android-star-outline" ng-if="child3.calificacion < 3"></i>
+				              <i class="ion-android-star-outline" ng-if="child3.calificacion < 4"></i>
+				              <i class="ion-android-star-outline" ng-if="child3.calificacion < 5"></i>
+				              {{child3.fechaComentario}}
+				          </p>
+				          <p>{{child3.comentario}}</p>
+				          <div ng-click="Comment.openModal(child3)" style="float: left;"><p>Comentar</p></div>
+	              		  <div ng-click="Comment.openModal(child3)" style="float: right;"><p>Respuestas</p></div>
+				        </a>
+				        
+				    </div>
+	              
+	            </div>
+	      	</div>
+	    </div>
+	    
+	</ion-content>
+	<div class="bar bar-footer" style="margin-bottom: 5%;">
+		  <form ng-submit="Comment.commentByFather($storage.data.id,2)" style="width:100%;margin-bottom:2%">
+	        <input type="text" placeholder="Comentar" ng-model="Comment.form.commentFather[$storage.data.id]">
+	        <i class="ion-android-send" ng-click="Comment.commentByFather($storage.data.id,2)" style="float: right;margin-top: -10%;font-size: 20px;margin-right: 10%;"></i>
+	      </form>
+		</div>
+</ion-modal-view>

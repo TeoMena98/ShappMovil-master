@@ -1,0 +1,25 @@
+.search{
+  .sh-brands-container{
+    justify-content:  space-around;
+  }
+  .sh-brand{
+  	@extend .sh-item;
+  	width: 30vw;
+  	height: 30vw;
+  	margin: 5px 1vw 5px 1vw;
+  }
+  .has-header{
+    @media (min-width: 650px) {
+      top: 60px !important;
+    }
+  }
+}
+.platform-ios{
+  .search{ 
+    .has-header{
+      @media (min-width: 650px) {
+        top: 80px !important;
+      }
+    }
+  }
+}

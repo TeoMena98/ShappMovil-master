@@ -1,0 +1,40 @@
+<ion-view view-title="" class="search">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header sh-gray-bg">
+    <div>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" ng-model="Search.tag" ng-change="Search.searchValid()" placeholder="Buscar">
+        </label>
+        <button ng-click="Search.searchBrand()" class="button button-small button-positive">
+          Consultar
+        </button>
+      </div>
+    </div>
+    <div class="sh-brands-container">
+      <span ng-repeat="brand in Search.brands" ng-if="brand.activo && brand.marcaId != 44">
+        <div class="sh-brand" ng-style="{'background-image':'url({{Search.urlImage}}{{brand.logo}})'}"
+          ng-click="Search.showBrand(brand)"></div>
+      </span>
+    </div>
+  </ion-content>
+</ion-view>

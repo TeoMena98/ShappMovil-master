@@ -1,0 +1,50 @@
+.level{
+  .sh-tittle{
+    color: $positive;
+  }
+  .sh-done{
+    opacity: 0.5;
+  }
+  .sh-profile{
+    height: 120px;
+    color: white;
+    background-color: gray;
+    font-size: 20px;
+    div{
+      margin-left: 44px;
+    }
+  }
+  .sh-conis-icon{
+    height: 20px;
+    width: 20px;
+  }
+  .card{
+    box-shadow: none;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 2px;
+    background-color: inherit;
+  }
+  .sh-info{
+    float: none;
+    white-space: normal;
+    margin-top: 7vw;
+    color: #4e4c4c;
+    text-align: justify;
+    margin-left: -14vw;
+    padding: 4vw;
+    border: #BE1E59 1px solid;
+    @media (min-width: 650px) {
+      margin-left: -4vw;
+    }
+  }
+  .sh-userInfo{
+    color: #BE1E59;
+    float: right; 
+    margin-top: -10vw;
+    @media (min-width: 650px) {
+      margin-top: -4vw;
+    }
+  }
+}
+

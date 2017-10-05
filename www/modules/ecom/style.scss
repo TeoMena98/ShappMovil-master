@@ -1,0 +1,19 @@
+.add-to-cart {
+    .item-checkbox {
+        width: 0%;
+        .checkbox{
+            left: 0px;
+        }
+    }
+    .item {
+        display: table-cell;
+        padding: 0 0 0 0;
+        border-style: none;
+        padding-left: 32px;
+    }
+    .checkbox-icon:before{
+        border-width: 1px;
+        border-color: #99244B;
+        border-radius: 50%;
+    }
+}

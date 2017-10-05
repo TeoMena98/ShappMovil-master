@@ -1,0 +1,86 @@
+.register{
+  background-color: $positive;
+  .sh-full-logo{
+    margin-top: 8vh;
+    height: 40vh;
+    img{
+      width: 30vh;
+      height: 30vh;
+      @media screen and (max-height: 400px) {
+       display: none;
+      }
+    }
+  }
+  .sh-big-row{
+    height: 40vh;
+    @media screen and (max-height: 400px) {
+     height: 2vh;
+   }
+  }
+  .sh-transparent-button{
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+  }
+  .sh-back-footer{
+    bottom: 0px;
+    background-color: $positive;
+    height: 50px;
+    padding: 0px;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    background-size: 100% 0px;
+    button{
+      font-size: 30px;
+      background-color: $positive;
+      color: white;
+    }
+  }
+  .sh-back-logo{
+    width: 30px;
+    height: 30px;
+    margin-left: 2px;
+  }
+  .sh-input-list{
+    background-color: rgba(255, 255, 255, 0);
+    width: 96%;
+    .sh-first-item{
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+    }
+    .sh-last-item{
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      padding-left: -1px !important;
+      width: 100%;
+      display: flex;
+      white-space: initial !important;
+      input{
+        margin-left: -40px;
+      }
+    }
+    .sh-check{
+      width: 40px;
+    }
+    .sh-terms{
+      font-size: 16px;
+      margin-left: -20px;
+      color: #353131;
+      font-style: italic;
+      margin-bottom: 25px;
+      word-wrap: normal;
+      width: 100%;
+    }
+  }
+}
+.platform-ios.keyboard-open{
+  .register{
+    .sh-big-row{
+      height: 2vh !important;
+      margin-top: -15vh !important;
+    }
+    .sh-back-footer{
+      bottom: 35vh !important;
+    }
+  }
+}

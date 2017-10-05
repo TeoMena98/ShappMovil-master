@@ -1,0 +1,33 @@
+<ion-view on-touch="onTouch($event)" hide-nav-bar="true">
+  <ion-content scroll="false" class="login">
+    <div class="row sh-full-logo sh-center-h ">
+        <img src="img/logo.png">
+    </div>
+    <div class="row center row-center sh-medium-row">
+      <div class="list list-inset sh-input-list">
+        <label class="item item-input sh-first-item">
+          <input type="text" placeholder="Código" ng-model="ForgotPass.form.codigo">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Nueva contraseña" ng-model="ForgotPass.form.pass">
+        </label>
+        <label class="item item-input sh-last-item">
+          <input type="password" placeholder="Repetir contraseña" ng-model="ForgotPass.form.pass2">
+        </label>
+        <div class="row sh-center-h">
+          <button style="bottom: 12px;" class="button sh-inside-button button-small" ng-click="ForgotPass.sendPass()">
+            Enviar datos
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bar sh-back-footer">
+      <button class="button" ng-click="ForgotPass.backLogin()">
+        <div class="row row-center">
+          <i class="icon ion-chevron-left"></i>
+          <img class="sh-back-logo" src="img/logo.png"/>
+        </div>
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

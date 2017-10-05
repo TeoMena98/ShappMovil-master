@@ -1,0 +1,127 @@
+.bonds{
+  .sh-user-bar{
+  	//position: fixed;
+  	//z-index: 10;
+  	//width: 100%;
+		background-color: $positive2;
+		height: 60px;
+		padding-left: 7px;
+		padding-right: 7px;
+    margin-top: 44px;
+		@media (min-width: 650px) {
+	    height: 80px;
+	    margin-top: 60px;
+	  }
+  }
+  .sh-small-profile{
+  	background-color: white;
+  	background-size: 100%;
+  	border-radius: 200px;
+  	width: 50px;
+  	height: 50px;
+  	.ion-android-contact{
+			font-size: 59px;
+			color: $positive;
+  	}
+  	@media (min-width: 650px) {
+  		width: 70px;
+  		height: 70px;
+  		.ion-android-contact{
+  			font-size: 69px;
+  		}
+	  }
+  }
+  .sh-user-bar-in{
+  	display: flex;
+  	flex-direction: row;
+  	justify-content: space-around;
+  }
+  .sh-level{
+  	color: white;
+  	div{
+  		margin-left: 2px;
+  		font-size: 20px;
+  		font-weight: bold;
+  		white-space: nowrap;
+  	}
+  	.icon{
+  		font-size: 43px;
+  	}
+  	img{
+  		width: 35px;
+  		height: 35px;
+  	}
+  	@media (min-width: 650px) {
+  		.icon{
+  			font-size: 52px;
+  		}
+  		div{
+  			margin-left: 5px;
+  			font-size: 22px;
+  		}
+  		img{
+  			width: 50px;
+  			height: 50px;
+  		}
+	  }
+  	}
+  	.has-header{
+      top: 104px;
+      @media (min-width: 650px) {
+        top: 140px !important;
+      }
+  	}
+  	.list{
+  		.item{
+  			p{
+  				width: 90%;
+				text-align: justify;
+				vertical-align: middle;
+				min-height: 72px;
+				white-space: normal;
+  			}
+  			i{
+  				position: absolute;
+			    right: 1%;
+			    font-size: 3em;
+			    color: $positive;
+			    top: 25%;
+  			}
+  		}
+  	}
+}
+.bond{
+	.list{
+		.item{
+			p{
+  				width: 90%;
+				text-align: justify;
+				vertical-align: middle;
+				min-height: 72px;
+				white-space: normal;
+  			}
+			.icon{
+				color: $positive;
+			}
+			.icon:first-child{
+				right: 50px;
+			}
+		}
+	}
+}
+.platform-ios{
+  .bonds{ 
+    .sh-user-bar{
+      margin-top: 64px;
+      @media (min-width: 650px) {
+        margin-top: 80px !important;
+      }
+    }
+    .has-header{
+      top: 124px !important;
+      @media (min-width: 650px) {
+        top: 160px !important;
+      }
+    }
+  }
+}

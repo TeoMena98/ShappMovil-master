@@ -1,0 +1,46 @@
+<ion-view on-touch="onTouch($event)" hide-nav-bar="true" class="registroView">
+  <ion-content scroll="false">
+    <div class="identidad identidadRegistroFB">
+      <div class="hide-on-keyboard-open">
+          <img id= "logoImg" src="images/logoSombra.png">
+      </div>
+    </div>
+    <md-progress-circular ng-show="loading" id="prog" md-mode="indeterminate"></md-progress-circular>
+    <div class="form formRegistro">
+      <form class="list list-inset" name="regForm" ng-submit="submit(regForm.$valid, data)">
+        <label id='panel1' class="item item-input">
+          <input  type="text"
+          name="name"
+          minlength="6"
+          maxlength="45"
+          ng-model="datos.nombre"
+          ng-trim
+          required
+          placeholder="Nombre completo">
+        </label>
+        <label class="item item-input">
+          <input  type="email"
+          name="email"
+          minlength="5"
+          maxlength="100"
+          ng-model="datos.email"
+          required
+          placeholder="Correo electrónico">
+        </label>
+        <li id='panel2' class="item item-checkbox" ng-click="showTerms()">
+          <label class="checkbox checkbox-stable">
+            <input  type="checkbox"
+            name="check"
+            ng-model="terms"
+            required>
+          </label>
+          <p>He leído y acepto los términos y condiciones</p>
+        </li>
+        <md-button ng-click="submit(regForm, data)" id="login" class="md-raised cap" style="padding:-10%">Continuar</md-button>
+      </form>
+      <div class="hide-on-keyboard-open">
+        <img ng-click="myGoBack()" id="back" src="images/ShappBack2.png">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

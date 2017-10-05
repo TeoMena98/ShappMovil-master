@@ -1,0 +1,27 @@
+<ion-view on-touch="onTouch($event)" hide-nav-bar="true">
+  <ion-content scroll="false" class="login">
+    <div class="row sh-full-logo sh-center-h ">
+        <img src="img/logo.png">
+    </div>
+    <div class="row center row-center sh-medium-row">
+      <div class="list list-inset sh-input-list">
+        <label class="item item-input sh-last-item">
+          <input type="text" placeholder="Correo electrónico" ng-model="ForgotPass.form.inputName">
+        </label>
+        <div class="row sh-center-h">
+          <button style="bottom: 12px;" class="button sh-inside-button button-small" ng-click="ForgotPass.sendEmail()">
+            Enviar correo
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bar sh-back-footer">
+      <button class="button" ng-click="ForgotPass.backLogin()">
+        <div class="row row-center">
+          <i class="icon ion-chevron-left"></i>
+          <img class="sh-back-logo" src="img/logo.png"/>
+        </div>
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

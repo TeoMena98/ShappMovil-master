@@ -1,0 +1,35 @@
+<ion-view on-touch="onTouch($event)" hide-nav-bar="true">
+  <ion-content scroll="false" class="login">
+    <div class="row sh-full-logo sh-center-h ">
+        <img src="img/logo.png">
+    </div>
+    <div class="row sh-center-h row-center sh-big-row">
+      <div class="list list-inset sh-input-list">
+        <label class="item item-input sh-first-item">
+          <input type="text" placeholder="Correo electrónico" ng-model="Login.form.login">
+        </label>
+        <label class="item item-input sh-last-item">
+          <input type="password" placeholder="Contraseña" ng-model="Login.form.password">
+        </label>
+        <div class="row sh-center-h">
+          <button class="button sh-inside-button button-small" ng-click="Login.login()">
+            Iniciar sesión
+          </button>
+        </div>
+        <div class="row sh-center-h">
+          <button class="button sh-transparent-button" ui-sref="forgotPass">
+            ¿Olvidaste tu contraseña?
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bar sh-back-footer">
+      <button class="button" ng-click="Login.backLogin()">
+        <div class="row row-center">
+          <i class="icon ion-chevron-left"></i>
+          <img class="sh-back-logo" src="img/logo.png"/>
+        </div>
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

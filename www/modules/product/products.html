@@ -1,0 +1,36 @@
+<ion-view class="products">
+<ion-nav-bar class="bar-positive sh-center-v">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <ion-nav-title>
+    <div class="sh-center-h">
+      <div class="sh-center-v">
+        <button class="sh-bar-button">
+          <img src="img/logo-home.png">
+        </button>  
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right" class="sh-center-h">
+    <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+    <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+      <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content class="has-header  sh-gray-bg">
+<div class="sh-url sh-center-v" style="margin-top: 0 !important;">
+  <p ui-sref="brand">
+    {{$storage.productsC.url}}
+  </p>
+</div>
+  <div class="sh-products-container">
+    <span class="sh-product-container" ng-repeat="product in Products.products" ng-click="Products.expand1(product.nombre,product.id,$index)">
+      <div class="sh-product-mini" ng-style="{'background-image':'url({{Products.urlImage}}{{product.defaultImage}})'}">
+        <p>{{product.nombre}}</p>
+      </div>
+    </span>
+  </div>
+</ion-content>
+</ion-view>
+

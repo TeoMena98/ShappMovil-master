@@ -1,0 +1,192 @@
+<ion-view view-title="" class="home">
+<div class="sh-welcome sh-center-v" ng-if="Home.welcome.val">
+  <div class="sh-center-h">
+    <div class= "sh-profile" style="background-image:url('{{$storage.user.picture}}')" ng-if="$storage.user.picture">
+      <img class= "sh-logo" src="img/logo-small.png">
+    </div>
+    <div class= "sh-profile" style="background-image:url('./img/profile.jpg')" ng-if="!$storage.user.picture">
+      <img class= "sh-logo" src="img/logo-small.png">
+    </div>
+  </div>
+  <div class="sh-center-h">
+    <p class="sh-name">{{$storage.user.name}}</p>
+  </div>
+  <div class="sh-center-h">
+    <p class="sh-text">Estás en</p>
+  </div>
+  <div class="sh-center-h">
+    <img class="sh-logo-name" src="img/nombre-color.png">
+  </div>
+</div>
+<ion-nav-bar class="bar-positive sh-center-v" ng-show="!Home.welcome.val">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <div class="sh-center-h">
+      <div class="sh-center-v">
+        <button class="sh-bar-button">
+          <img src="img/logo-home.png">
+        </button>  
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right" class="sh-center-h">
+    <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+    <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart"  ng-if="$storage.countShop.length > 0">
+      <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+  
+    
+  
+<ion-content class="has-header sh-gray-bg overflow-scroll" ng-show="!Home.welcome.val">
+  <div class="sh-user-bar sh-center-v">
+    <div class="sh-user-bar-in">
+      <span ng-if="!$storage.user.picture">
+        <div class="sh-small-profile sh-center-h">
+          <i class="icon ion-android-contact"></i>
+        </div>
+      </span>
+      <span ng-if="$storage.user.picture">
+        <div class="sh-small-profile" style="background-image:url('{{$storage.user.picture}}')">
+        </div>
+      </span>
+      <div class="sh-center-h sh-level" ui-sref="app.levels">
+        <div class="sh-center-v">
+          <i class="icon ion-trophy"></i>
+        </div>
+        <div class="sh-center-v">
+          {{$storage.uuid.uuid.level}}
+        </div>
+      </div>
+      <div class="sh-center-h sh-level" ui-sref="app.challenges">
+        <div class="sh-center-v">
+           <img src="img/coins.png"/>
+        </div>
+        <div class="sh-center-v">
+          {{$storage.user.coins}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sh-container-home">
+    <div class="row sh-slides">
+      <ion-slide-box does-continue="true" auto-play="true" slide-interval="7500" delegate-handle="home">
+        <ion-slide>
+          <div>
+            <img src="img/1.jpg"/>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <img src="img/level.jpg"/>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <img src="img/gamification.jpg"/>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <p ng-if="Home.trends.length > 0">Tendencias</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="trends">
+        <ion-slide ng-repeat="page in Home.trends">
+          <span ng-repeat="trend in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Home.urlImage}}{{trend.imgUrl}})','width':'30vw','height':'31vw'}"  ng-click="Home.showProduct(trend)"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <p>Favoritos</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="shapps">
+        <ion-slide ng-repeat="page in Home.shapps.data">
+          <span ng-repeat="shapp in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Home.urlImage}}{{shapp.logo}})','width':'30vw','height':'31vw'}"  ng-click="Home.showBrand(shapp)" ng-if="shapp.marcaId"></div>
+            <div class="sh-item" ng-style="{'background-image':'url({{shapp.logo}})','width':'30vw','height':'31vw'}" ui-sref="app.search" ng-if="!shapp.marcaId"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <p ng-if="Home.category.length > 0">Categorías</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="category">
+        <ion-slide ng-repeat="page in Home.category">
+          <span ng-repeat="category in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Home.urlImage}}{{category.urlImg}})','width':'30vw','height':'31vw'}"  ng-click="Home.showCategory(category)"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <p ng-if="Home.reciente.length > 0">Nuevas marcas</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="reciente">
+        <ion-slide ng-repeat="page in Home.reciente">
+          <span ng-repeat="reciente in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Home.urlImage}}{{reciente.logo}})','width':'30vw','height':'31vw'}"  ng-click="Home.showBrand(reciente)"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <p ng-if="Home.reciente.length > 0">Interes</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="interes" ng-if="$storage.uuid.invitado == false">
+        <ion-slide >
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/bonos.png)','width':'30vw','height':'31vw'}" ui-sref="app.bonds"></div>
+          </span>
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/mis-bonos.png)','width':'30vw','height':'31vw'}" ui-sref="app.mybonds"></div>
+          </span>
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/promociones.png)','width':'30vw','height':'31vw'}" ui-sref="app.prom"></div>
+          </span>
+        </ion-slide>
+        <ion-slide >
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/novedades.png)','width':'30vw','height':'31vw'}" ui-sref="app.new"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+      <ion-slide-box show-pager="false" delegate-handle="interes" ng-if="$storage.uuid.invitado == true">
+        <ion-slide >
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/bonos.png)','width':'30vw','height':'31vw'}" ui-sref="app.bonds"></div>
+          </span>
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/novedades.png)','width':'30vw','height':'31vw'}" ui-sref="app.new"></div>
+          </span>
+          <span >
+            <div class="sh-item" ng-style="{'background-image':'url(img/promociones.png)','width':'30vw','height':'31vw'}" ui-sref="app.prom"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <!--<p ng-if="Home.bondsNotice.length > 0">Bonos y Promociones</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="bondsNotice">
+        <ion-slide ng-repeat="page in Home.bondsNotice">
+          <span ng-repeat="bondsNotice in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Home.urlImage}}{{bondsNotice.url}})','width':'30vw','height':'31vw'}"  ng-click="Home.openLightbox(Home.urlImage+bondsNotice.url)"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <p ng-if="Home.notice.length > 0">Noticias</p>
+    <div class="sh-item-container">
+      <ion-slide-box show-pager="false" delegate-handle="notice">
+        <ion-slide ng-repeat="page in Home.notice">
+          <span ng-repeat="notice in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Home.urlImage}}{{notice.url}})','width':'30vw','height':'31vw'}"  ng-click="Home.openLightbox(Home.urlImage+notice.url)"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>-->
+  </div>
+</ion-content>
+</ion-view>

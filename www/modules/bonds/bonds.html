@@ -1,0 +1,52 @@
+<ion-view class="bonds">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+    <div class="sh-user-bar sh-center-v">
+      <div class="sh-user-bar-in">
+        <div class="sh-center-h sh-level">
+          <div class="sh-center-v">
+             <img src="img/coins.png"/>
+          </div>
+          <div class="sh-center-v">
+            {{$storage.user.coins}}
+          </div>
+        </div>
+        <div class="sh-center-h sh-level">
+          <div class="sh-center-v">
+            Bonos
+          </div>
+        </div>
+        <div class="sh-center-h sh-level" ng-click="Bonds.openHelp($event)">
+          <div class="sh-center-v">
+            <i class="icon ion-help-circled"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-nav-bar>
+  <ion-content class="bonds has-header bonds sh-gray-bg">
+    <div class="list">
+      <a class="item item-thumbnail-left" ng-repeat="bond in Bonds.bonds" ng-click="Bonds.showBond(bond)">
+        <img src="{{Bonds.urlImage}}{{bond.logoProveedor}}">
+        <p class="sh-center-v">{{bond.desAux}}</p>
+        <i class="icon ion-chevron-right"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

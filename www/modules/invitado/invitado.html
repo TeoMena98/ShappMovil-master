@@ -1,0 +1,50 @@
+<ion-view view-title="" class="login-home">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart">
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header sh-gray-bg">
+    <div class="sh-brands-container">
+      <div class="row sh-center-h sh-div-logo">
+        <img class="sh-full-logo" src="img/full-logo.png">
+      </div>
+      <div class="row sh-center-row">
+        <div class="col col-center">
+          <div class="row sh-center-h sh-div-logo">
+            <h4 class="sh-italic sh-padding-top-20">Hola, ¿Cómo quieres iniciar?</h4>
+          </div>
+          <div class="row sh-center-h">
+            <button class="button sh-button-index-bl padding-top" ng-click="login.loginFacebook()">
+              Facebook
+            </button>
+          </div>
+          <div class="row sh-center-h">
+            <button class="button sh-button-index-gr" ui-sref="login">
+              Ya tengo una cuenta
+            </button>
+          </div>
+          <div class="row sh-center-h">
+            <button class="button sh-button-index-sh" ui-sref="register">
+              Regístrate
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

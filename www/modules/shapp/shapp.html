@@ -1,0 +1,38 @@
+<ion-view view-title="" class="trend">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+    <div class="sh-url sh-center-v">
+      <p>
+        ¿Qué es Shapp?
+      </p>
+    </div>
+  </ion-nav-bar>
+  <ion-content class="has-header login-home">
+    <div class="row sh-center-h sh-div-logo">
+      <img class="sh-full-logo" src="img/full-logo.png" style="width: 65vw;height: 65vw;">
+    </div>
+    <div class="row sh-center-row">
+      <div class="col col-center">
+        <div class="row sh-center-h sh-div-logo" style="text-align: justify;color: #666;padding: 7%;">
+          Shapp es una aplicación para dispositivos móviles multimarca - multiplataforma que te permite consultar los catálogos, promociones, tiendas, noticias y videos de tus marcas favoritas. La aplicación es una herramienta móvil de marketing digital dirigida a diferentes sectores del mercado como: moda, belleza, hogar, deporte entre otras.
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

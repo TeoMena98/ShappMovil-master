@@ -1,0 +1,13 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4",
+    "ionic-platform-web-client": "~0.7.1"
+  },
+  "dependencies": {
+    "ngstorage": "~0.3.10",
+    "ngCordova": "~0.1.26-alpha",
+    "ionic-zoom-view": "~2.0.0"
+  }
+}

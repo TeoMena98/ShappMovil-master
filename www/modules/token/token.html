@@ -1,0 +1,33 @@
+<ion-view view-title="Bono {{bono.marca}}">
+  <ion-nav-bar align-title="center">
+    <ion-nav-buttons side="left">
+      <a ng-click="goBack()">
+        <md-button aria-label="back">
+          <img class="backButton" src="images/ShappBack.png"></img>
+        </md-button>
+      </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear ion-navicon color" menu-toggle="right">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header">
+  <md-progress-circular ng-show="loading" id="prog" md-mode="indeterminate"></md-progress-circular>
+    <div class="card padding bono_content">
+      <div id="iframeFallback" class="bono_iframe"></div>
+    </div>
+    <div class="item item-thumbnail-left">
+      <img ng-src="{{urlImg}}{{bono.logo}}">
+      <p class="bono_desc">{{bono.descripcion}}</p>
+    </div>
+    <div class="list">
+      <a class="item item-icon-right" ng-repeat="codigo in bono.codigo">
+        {{codigo}}
+        <i class="icon ion-printer" id="first-icon" ng-click="imprimir($index)"></i>
+        <i class="icon ion-email" ng-click="enviar($index)"></i>
+      </a>
+    </div>
+    <md-button class="bono_btn md-raised" ng-click="comprar($event)">Comprar otro ({{bono.costo}})</md-button>
+  </ion-content>
+</ion-view>

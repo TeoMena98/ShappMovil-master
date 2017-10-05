@@ -1,0 +1,87 @@
+<ion-view class="bond">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart">
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="bond has-header">
+    <div ng-repeat="shop in Cart.shop"  >
+    <div class="list" >
+      
+      <div class="item item-divider item-positive" ng-repeat="Marca in $storage.brand|orderBy: nombre"  ng-if="Cart.shop.length > 0">
+        {{Marca.nombre}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  {{shop.precio*shop.quantity|currency:"$" : 3}}
+      </div>
+      <div class="item item-divider item-stable" ng-if="Cart.shop.length > 0" style="border-color: #585858;background-color: #6f6f6f;color: #fafafa;">
+        Costo de envío $3.000
+      </div><br>
+      <a class="item item-thumbnail-left" style="background-color: #DADADA; " href="#"  >
+        
+        <img src="{{Cart.urlImage}}{{shop.defaultImage}}" >
+        
+        <h2 class="positive">{{shop.nombre}}</h2>
+        <label class="item item-input item-number" style="background-color: #DADADA; margin: 0 0 0;margin-right: 26vw;min-height: 0; border:0px; margin-bottom: 0;">
+            <div class="input-label">
+                Precio:{{shop.precio|currency:"$" : 3}}
+            </div>
+        </label>
+        <label class="item item-input item-otro" style="background-color: #DADADA; margin: 0 0 0;margin-right: 26vw;min-height: 0; border:0px; margin-bottom: 0;">
+            <div class="input-label">
+                Talla: {{shop.color}}
+            </div>
+        </label>
+        <label class="item item-input item-box" style="background-color: #DADADA; margin: 0 0 0;margin-right: 26vw;min-height: 0; border:0px; margin-bottom: 0;">
+            <div class="input-label">
+                Color: {{shop.color}}
+            </div>
+        </label>
+     
+        
+            <label class="item item-input item-select" style="background-color: #DADADA; margin: 0 0 0;margin-right: 26vw;min-height: 0; border:0px; padding: 0%; margin-bottom: 0%;">
+                <div class="input-label">
+                    Cantidad: 
+                </div>
+               
+                    <select ng-init="shop.quantity='1'" style="background-color: #DADADA;" ng-model="shop.quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                
+              </label>
+         
+
+        </p>
+        
+        <i class="icon ion-close" style="position: absolute;right: 7px;top: 7px;" ng-click="Cart.cancel($index)"></i>
+ 
+      </a>
+      <br>
+ 
+    </div>
+    <div class="item item-divider item-positive" style=" border-radius: 5px 5px 5px 5px; margin-left: 50%; margin-right: 3%; text-align: left;" ng-if="Cart.shop.length > 0">
+      
+      SubTotal  {{shop.precio*shop.quantity|currency:"$" : 3}}
+    </div>
+<br> <br>
+  </div>
+    <button class="button button-block button-positive" style="margin: 0 auto; width: 150px; height:3%;" ng-click="Cart.shopFinish()" ng-if="Cart.shop.length > 0">
+      Finalizar compra
+    </button>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,113 @@
+<ion-view class="product" id="v">
+  <ion-nav-bar class="bar-positive sh-center-v">
+    <ion-nav-back-button ng-click="myGoBack()">
+    </ion-nav-back-button>
+    <ion-nav-title>
+      <div class="sh-center-h">
+        <div class="sh-center-v">
+          <button class="sh-bar-button">
+            <img src="img/logo-home.png">
+          </button>  
+        </div>
+      </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" class="sh-center-h">
+      <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+      <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+        <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+      </button>
+    </ion-nav-buttons>
+    <div class="sh-url sh-center-v" style="display:none">
+      <p id="nameProduct">
+        {{$storage.productoDetail.nameProducto}} 
+      </p>
+    </div>
+    <div style="width:100%;height:{{offsetHeight}};z-index:100;background-color:white;display:{{display}}"></div>
+  </ion-nav-bar>
+  <ion-content class="brand has-header products sh-gray-bg" delegate-handle="content" on-scroll="Product.getScrollPosition()">
+    <div ng-repeat="product in $storage.productsList" id="p{{product.id}}" class="productList">
+    <div id="pAux{{product.id}}"></div>
+    <div class="sh-url sh-center-v" style="margin-top: 0;z-index:0;">
+      <p>
+        {{product.nombre}}
+      </p>
+    </div>
+    <div class="sh-item-container" id="pr{{product.id}}" >
+      <div class="sh-item" ng-repeat="pRt in Product.productoRelation['p'+product.id]" ng-click="Product.expand1(pRt)" style="background-image:url({{Product.urlImage}}{{pRt.defaultImage}}) !important;background-size: contain !important;">
+      </div>
+    </div>
+    <ion-slide-box does-continue="false" auto-play="false" on-slide-changed="Product.slideChanged(index,product.id)" pager-click="Product.page(index,$index)">
+        <ion-slide ng-if="product.imagenes.length == 0">
+          <div class="sh-item" style="width: 100%;height: 60vh;" ng-style="{'background-image':'url({{Product.urlImage}}{{product.defaultImage}})'}" ng-click="addToCart(product)"></div>
+        </ion-slide>
+        <ion-slide ng-repeat="img in product.imagenes">
+          <div class="sh-item" style="width: 100%;height: 60vh;" ng-style="{'background-image':'url({{Product.urlImage}}{{img}})'}" ng-click="addToCart(product)"></div>
+        </ion-slide>
+    
+        <ion-scroll min-zoom="1" zooming="true">
+          <div class="pRelation" style="margin-top: 0;padding: 30.7vh;">
+            <img ng-src="{{Product.urlImage}}{{product.defaultImage}}" ng-pinch-zoom max-scale=“3” min-scale=“1” ng-if="product.imagenes.length == 0"/>
+            <img ng-src="{{Product.urlImage}}{{product.imagenes[0]}}" ng-pinch-zoom max-scale=“3” min-scale=“1” ng-if="product.imagenes.length != 0"/>
+          </div>
+         
+          </ion-scroll>
+        </ion-slide>
+    
+    </ion-slide-box>
+    <div class="sh-product">
+      <div class="sh-product-actions">
+        <button class="button button-icon button-clear ion-android-share-alt" ng-click="Product.share(product)">
+        </button>
+        <button class="button button-icon button-clear ion-chatbox-working" ng-click="Product.modalOpen(product)">
+        </button>
+        <!--button class="button button-icon button-clear ion-image" ng-click="Product.OpenModal(product)">
+          </button--> 
+        <add-to-cart product="product" ng-if="product.precio != 0"></add-to-cart>
+        <!--<button class="button button-icon button-clear ion-ios-cart" ng-click="Product.cart(product.id)">
+        </button>-->
+        
+      </div>
+    </div>
+    <div class="sh-center-h sh-price" ng-if="product.precio != 0">
+      <p ><span ng-if="product.precioAnt > product.precio ">${{product.precioAnt}}</span></p>
+      <p>$ {{product.precio}}</p>
+      <p>COP</p>
+    </div>
+    <div class="sh-des sh-center-v">
+      <div>
+        <i class="ion-android-star" ng-if="product.promedioCalificacion.promedio >= 1"></i>
+        <i class="ion-android-star" ng-if="product.promedioCalificacion.promedio >= 2"></i>
+        <i class="ion-android-star" ng-if="product.promedioCalificacion.promedio >= 3"></i>
+        <i class="ion-android-star" ng-if="product.promedioCalificacion.promedio >= 4"></i>
+        <i class="ion-android-star" ng-if="product.promedioCalificacion.promedio >= 5"></i>
+        <i class="ion-android-star-outline" ng-if="product.promedioCalificacion.promedio < 1"></i>
+        <i class="ion-android-star-outline" ng-if="product.promedioCalificacion.promedio < 2"></i>
+        <i class="ion-android-star-outline" ng-if="product.promedioCalificacion.promedio < 3"></i>
+        <i class="ion-android-star-outline" ng-if="product.promedioCalificacion.promedio < 4"></i>
+        <i class="ion-android-star-outline" ng-if="product.promedioCalificacion.promedio < 5"></i>
+      </div>
+      <p>
+        {{product.descripcion}}
+      </p>
+    </div>
+    <!--<div class="sh-center-h sh-relation">
+      <p>Productos relacionados</p>
+    </div>
+      <div class="sh-item-container">
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+        <div class="sh-item"></div>
+      </div>-->
+      <div class="sh-soon sh-center-v" id="cart{{product.id}}">
+       <p>
+         Estamos trabajando en nuestro carrito de compras para que tus deseos estén solo a un clic.
+       </p>
+     </div>
+    </div>
+  </ion-content>
+</ion-view>

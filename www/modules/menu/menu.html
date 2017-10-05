@@ -1,0 +1,78 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content drag-content="toggledrag">
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content class="sh-gray-bg gamification">
+      <div class="item item-avatar sh-profile">
+        <img class="sh-profile-picture" src="{{$storage.user.picture}}" style="max-width: 84px !important;max-height: 84px !important;" ng-if="$storage.user.picture">
+        <img class="sh-profile-picture" style="max-width: 84px !important;max-height: 84px !important;" src="img/profile.jpg" ng-if="!$storage.user.picture">  
+        <div style="margin-top: 6%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+          <b>{{$storage.user.name}}</b><br>
+          <img class="sh-conis-icon" src="img/coins.png"/>
+          {{$storage.user.coins}}
+          <br>
+          <i class="icon ion-trophy"></i>
+          <span style="font-size: 97%;">{{$storage.uuid.uuid.level}}</span>  
+        </div>
+      </div>
+      <ion-list class="menu-container">
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('invitado')" ng-if="$storage.uuid.invitado" href="#">
+          <i class="icon ion-android-contact"></i>
+          Registrate
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('profile')" ng-if="!$storage.uuid.invitado" href="#">
+          <i class="icon ion-android-contact"></i>
+          Perfil
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.inviteFriend()" ng-if="!$storage.uuid.invitado" href="#">
+          <i class="icon ion-android-contacts"></i>
+          Invitar amigos
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('myshapp')" ng-if="!$storage.uuid.invitado" href="#">
+          <img src="img/s.png" style="width: 8%;">
+          Favoritos
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('bonds')" href="#">
+          <i class="icon ion-ios-pricetags"></i>
+          Bonos y promociones
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('trends')" href="#">
+          <i class="icon ion-stats-bars"></i>
+          Tendencias
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('challenges')" ng-if="!$storage.uuid.invitado" href="#">
+          <i class="icon ion-ribbon-b"></i>
+          Mis retos
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('mybonds')" ng-if="!$storage.uuid.invitado" href="#">
+          <img src="img/b.png" style="width: 8%;">
+          Mis bonos
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('category')" href="#">
+          <i class="icon ion-ios-browsers"></i>
+          Categorías
+        </ion-item>
+        <!--<ion-item menu-close class="item-menu">
+          <i class="icon ion-toggle-filled"></i>
+          Notificaciones
+        </ion-item>-->
+      </ion-list>
+      <ion-list>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('qshapp')" href="#">
+          ¿Qué es Shapp?
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('guia')" href="#">
+          Guia de Shapp
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.next('helpme')" ng-if="!$storage.uuid.invitado" href="#">
+          Ayuda
+        </ion-item>
+        <ion-item menu-close class="item-menu" ng-click="Menu.logout()" href="#">
+          Cerrar sesión
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

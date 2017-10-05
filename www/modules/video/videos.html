@@ -1,0 +1,53 @@
+<ion-view view-title="" class="video">
+<ion-nav-bar class="bar-positive sh-center-v">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <ion-nav-title>
+    <div class="sh-center-h">
+      <div class="sh-center-v">
+        <button class="sh-bar-button">
+          <img src="img/logo-home.png">
+        </button>  
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right" class="sh-center-h">
+    <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+    <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+      <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content class="has-header brand sh-gray-bg">
+  <!--<div class="sh-brands-container">
+    <span ng-repeat="brand in Search.brands">
+      <div class="sh-brand" ng-style="{'background-image':'url({{Search.urlImage}}{{brand.logo}})'}"
+        ng-click="Search.showBrand(brand)"></div>
+    </span>
+  </div>-->
+  <div class="sh-center-h sh-brand-logo" adaptive-background>
+    <div class="sh-center-v">
+      <img ng-src="{{Videos.urlImage}}{{$storage.brand.logo}}" id="logo" crossOrigin="Anonymous">
+    </div>
+  </div>
+  <div class="sh-video-title">
+    <div class="sh-brand-name sh-follow-container">
+      <p>{{$storage.brand.nombre}}</p>
+    </div>
+  </div>
+  <div class="sh-video">
+    <div class="sh-brand-name sh-follow-container">
+      <p>Video</p>
+    </div>
+  </div>
+  <div class="sh-video-list">
+    <youtube-video 
+      ng-repeat="video in Videos.videos" 
+      video-url="video.url" 
+      player-width="'49%'" 
+      player-height="'25%'"
+      class="youtube">    
+    </youtube-video>
+  </div>
+</ion-content>
+</ion-view>

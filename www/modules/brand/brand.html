@@ -1,0 +1,168 @@
+<ion-view class="brand" cache-view="false">
+<ion-nav-bar class="bar-positive sh-center-v">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <ion-nav-title>
+    <div class="sh-center-h">
+      <div class="sh-center-v">
+        <button class="sh-bar-button">
+          <img src="img/logo-home.png">
+        </button>  
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right" class="sh-center-h">
+    <button class="button button-icon button-clear ion-search sh-right-button" ui-sref="app.search"></button>
+    <button class="button button-icon button-clear ion-ios-cart sh-right-button" ui-sref="app.cart" >
+      <span class="badge badge-positive" style="position: absolute;top: 15px;right: -5px;background-color: #81213F;">{{$storage.countShop}}</span>
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content class="has-header sh-gray-bg">
+  <div class="sh-center-h sh-brand-logo" adaptive-background>
+    <div class="sh-center-v">
+      <img ng-src="{{Brand.urlImage}}{{$storage.brand.logo}}" id="logo" crossOrigin="Anonymous">
+    </div>
+  </div>
+  <div class="sh-brand">
+    <div class="sh-brand-name sh-follow-container">
+      <p>{{$storage.brand.nombre}}</p>
+      <button class="button button-icon button-clear sh-follow-button" ng-class="Brand.icon" ng-click="Brand.like()">
+      </button>
+    </div>
+    <div>
+      <i class="ion-android-star" ng-if="Brand.promedio >= 1"></i>
+      <i class="ion-android-star" ng-if="Brand.promedio >= 2"></i>
+      <i class="ion-android-star" ng-if="Brand.promedio >= 3"></i>
+      <i class="ion-android-star" ng-if="Brand.promedio >= 4"></i>
+      <i class="ion-android-star" ng-if="Brand.promedio >= 5"></i>
+      <i class="ion-android-star-outline" ng-if="Brand.promedio < 1"></i>
+      <i class="ion-android-star-outline" ng-if="Brand.promedio < 2"></i>
+      <i class="ion-android-star-outline" ng-if="Brand.promedio < 3"></i>
+      <i class="ion-android-star-outline" ng-if="Brand.promedio < 4"></i>
+      <i class="ion-android-star-outline" ng-if="Brand.promedio < 5"></i>
+    </div>
+    <p class="sh-brand-desc">
+      {{$storage.brand.descripcionAux}} 
+      <a ng-click="Brand.more()" ng-hide="$storage.showMore" style="position: absolute;right: 7px;color: #BE1E59;white-space: nowrap;">Ver más</a>
+    </p>
+    <div class="sh-brand-actions">
+      <button class="button button-icon button-clear ion-android-share-alt" ng-click="Brand.share()">
+      </button>
+      <button class="button button-icon button-clear ion-chatbox-working" ng-click="Brand.modalOpen()">
+      </button>
+      <button class="button button-icon button-clear ion-ios-paper" ng-click="Brand.notices()">
+      </button>
+      <button class="button button-icon button-clear ion-ios-location" ng-click="Brand.maps()">
+      </button>
+      <button class="button button-icon button-clear ion-social-youtube" ng-click="Brand.videos()" style="z-index: 10;">
+      </button>
+    </div>
+  </div>
+  <div class="sh-hlist" ng-if="Brand.promos.length > 0">
+    <p>Bonos y promociones</p>
+    <div class="sh-item-container" >
+      <ion-slide-box show-pager="false" delegate-handle="promos">
+        <ion-slide ng-repeat="page in Brand.promos">
+          <span ng-repeat="promo in page">
+            <div class="sh-item" ng-style="{'background-image':'url({{Brand.urlImage}}{{promo.bono}})','width':'30vw','height':'31vw'}" ng-click="Brand.showBond(promo)"></div>
+          </span>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+  </div>
+  <div class="sh-item-container sh-hlist" ng-if="Brand.catalogs">
+    <p ng-if="Brand.catalogs.length > 0">Catálogos</p>
+    <ion-slide-box show-pager="false" delegate-handle="catalogs">
+      <ion-slide ng-repeat="page in Brand.catalogs">
+        <span ng-repeat="catalog in page">
+          <div class="sh-item" ng-style="{'background-image':'url({{Brand.urlImage}}{{catalog.logo}})','width':'30vw','height':'31vw'}"  ng-click="Brand.expand(catalog)">
+            <button class="button button-icon button-clear ion-arrow-down-b linkMore" ng-show="catalog.expand">
+            </button>
+          </div>
+        </span>
+      </ion-slide>
+    </ion-slide-box>
+  </div>
+
+  <div class="sh-item-container sh-hlist"> 
+    <p ng-if="Brand.category.length > 0">{{Brand.catalogAux.nombre}} </p>
+    <ion-slide-box show-pager="false" delegate-handle="category">
+      <ion-slide ng-repeat="page in Brand.category">
+        <span ng-repeat="category in page">
+          <div class="sh-item" ng-style="{'background-image':'url({{Brand.urlImage}}{{category.logo}})','width':'30vw','height':'31vw'}"  ng-click="Brand.expand1(category);" ng-if="category.id">
+
+            <button class="button button-icon button-clear ion-arrow-down-b linkMore" ng-show="category.expand">
+            </button>
+          </div>
+          <div class="sh-item" ng-style="{'background-image':'url({{category.logo}})','width':'30vw','height':'31vw'}"  ng-click="Brand.expand4(category);" ng-if="!category.id">
+          </div>
+        </span>
+      </ion-slide>
+    </ion-slide-box>
+  </div>
+
+  <div class="sh-item-container sh-hlist">
+    <p ng-if="Brand.subcategory.length > 0">{{Brand.categoryAux.nombre}}</p>
+    <ion-slide-box show-pager="false" delegate-handle="subcategory">
+      <ion-slide ng-repeat="page in Brand.subcategory">
+        <span ng-repeat="subcategory in page">
+          <div class="sh-item" ng-style="{'background-image':'url({{Brand.urlImage}}{{subcategory.logo}})','width':'30vw','height':'31vw'}"  ng-click="Brand.expand2(subcategory)">
+            <button class="button button-icon button-clear ion-arrow-down-b linkMore" ng-show="subcategory.expand">
+            </button>
+          </div>
+        </span>
+      </ion-slide>
+    </ion-slide-box>
+  </div>
+  <div class="sh-item-container sh-hlist">
+    <p ng-if="Brand.subcategory2.length > 0">{{Brand.subcategoryAux.nombre}}</p>
+    <ion-slide-box show-pager="false" delegate-handle="subcategory2">
+      <ion-slide ng-repeat="page in Brand.subcategory2">
+        <span ng-repeat="subcategory2 in page">
+          <div class="sh-item" ng-style="{'background-image':'url({{Brand.urlImage}}{{subcategory2.logo}})','width':'30vw','height':'31vw'}"  ng-click="Brand.expand1(subcategory2)">
+            <button class="button button-icon button-clear ion-arrow-down-b linkMore" ng-show="subcategory2.expand">
+            </button>
+          </div>
+        </span>
+      </ion-slide>
+    </ion-slide-box>
+  </div>
+  <!--<span ng-repeat="catalog in Brand.catalogs">
+    <div class="sh-catalog-name sh-follow-container">
+      <p ng-click="Brand.expand(catalog)">
+        {{catalog.nombre}}
+      </p>
+      <button class="button button-icon button-clear sh-follow-button" ng-class="catalog.icon" ng-click="Brand.likedC(catalog)">
+      </button>
+    </div>
+    <div class="sh-tree">
+      <div ng-repeat="category in catalog.categories" ng-if="catalog.cantCategorias > 0" ng-show="catalog.expand" class="animate-show">
+        <div ng-click="Brand.expand1(category,catalog)" class="sh-category">
+          <p>{{category.nombre}}</p>
+          <button class="button button-icon button-clear ion-chevron-down" ng-if="category.cantProductos <= 0">
+          </button>
+        </div>
+        <div ng-repeat="subCategory in category.subCategories" ng-show="category.expand" class="animate-show">
+          <div ng-click="Brand.expand1(subCategory,catalog)" class="sh-category-2">
+            <p>{{subCategory.nombre}}</p>
+            <button class="button button-icon button-clear ion-chevron-down" ng-if="subCategory.cantProductos <= 0">
+            </button>
+          </div>
+          <div ng-repeat="subCategory2 in subCategory.subCategories" ng-show="subCategory.expand" class="animate-show">
+            <div ng-click="Brand.expand1(subCategory2,catalog)" class="sh-category-3">
+              <p>{{subCategory2.nombre}}</p>
+              <button class="button button-icon button-clear ion-chevron-down" ng-if="subCategory2.cantProductos <= 0">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sh-catalog sh-center-v" ng-click="Brand.expand(catalog)">
+      <img ng-src="{{Brand.urlImage}}{{catalog.logo}}">
+    </div>
+    
+  </span>-->
+</ion-content>
+</ion-view>
